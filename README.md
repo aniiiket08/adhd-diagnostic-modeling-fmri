@@ -19,6 +19,47 @@ The work has two threads. The first is diagnostic prediction: high-dimensional p
   <img src="assets/pipeline_diagram.png" alt="Pipeline: neuroimaging and behavioral data through missing-value handling, PCA, SMOTE and classifiers to ADHD prediction, plus a separate fMRI degree-centrality analysis branch" width="950">
 </p>
 
+## 📂 Dataset
+
+Built on the **WiDS Datathon 2025** dataset, which includes:
+
+- Quantitative metadata
+- Categorical metadata
+- Functional connectome data
+- Target labels (ADHD outcome, biological sex)
+
+**Source:** [kaggle.com/competitions/widsdatathon2025/data](https://www.kaggle.com/competitions/widsdatathon2025/data)
+
+Raw and processed data files aren't included in this repo due to size — download from the link above and place under `data/raw/`.
+
+## 🔄 Project workflow
+
+```
+Raw Dataset (Connectome + Metadata)
+              ↓
+   Data Cleaning & Preprocessing
+              ↓
+      Missing-Value Handling
+              ↓
+  PCA (Dimensionality Reduction)
+              ↓
+     SMOTE (Class Balancing)
+              ↓
+   Model Training & Evaluation
+              ↓
+         ADHD Prediction
+```
+
+```
+       Resting-State fMRI
+              ↓
+Functional Connectome (Brain Connectivity)
+              ↓
+        Degree Centrality
+              ↓
+  Sex-Associated Pattern Analysis
+```
+
 ## 🧬 How it works
 
 1. **Data** — functional connectome features from neuroimaging alongside quantitative and categorical metadata, so the model isn't a pure "MRI → ADHD" classifier.
@@ -63,10 +104,14 @@ This is a research and competition project, not a clinical diagnostic tool. Resu
 ## 📁 Repo structure
 
 ```
+├── data/
+│   ├── raw/                             # place downloaded WiDS 2025 files here
+│   └── processed/
 ├── notebooks/
 │   └── adhd_diagnosis.ipynb            # preprocessing, PCA, SMOTE, model comparison
 ├── assets/
 │   └── pipeline_diagram.png
+├── requirements.txt
 └── README.md
 ```
 
