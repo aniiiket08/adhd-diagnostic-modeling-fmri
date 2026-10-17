@@ -1,4 +1,4 @@
-<div align="centre">
+<div align="center">
 
 # ADHD Diagnosis from Neuroimaging and Behavioral Data
 
